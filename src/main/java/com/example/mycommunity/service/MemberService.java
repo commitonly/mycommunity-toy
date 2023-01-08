@@ -2,14 +2,17 @@ package com.example.mycommunity.service;
 
 import com.example.mycommunity.domain.Member;
 import com.example.mycommunity.repository.MemberRepository;
-import com.example.mycommunity.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
 
     //회원가입
